@@ -9,9 +9,12 @@ public class Warrior {
     public Warrior(String nickname, int lvl, Profession profession) {
         this.nickname = nickname;
         this.lvl = lvl;
-        this.profession = profession;
+        changeProfession(profession);
     }
 
     public void changeProfession(Profession newProfession) {
+        WeaponFactory weaponFactory = new WeaponFactory();
+        weapon = weaponFactory.changeProfession(Profession.TANK);
+        profession = newProfession;
     }
 }

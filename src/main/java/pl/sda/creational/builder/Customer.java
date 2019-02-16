@@ -11,14 +11,8 @@ public class Customer {
     private String city;
     private String country;
 
-    public Customer(String name, String lastName, LocalDate birthDate, String pesel, String profession, String city, String country) {
-        this.name = name;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.pesel = pesel;
-        this.profession = profession;
-        this.city = city;
-        this.country = country;
+    private Customer() {
+
     }
 
     public String getName() {
@@ -47,5 +41,49 @@ public class Customer {
 
     public String getCountry() {
         return country;
+    }
+
+    public static class Builder {
+
+        private Customer customer = new Customer();
+
+        public Builder withName(String name) {
+            customer.name = name;
+            return this;
+        }
+
+        public Builder withLastName(String lastName) {
+            customer.lastName = lastName;
+            return this;
+        }
+
+        public Builder bornAt(LocalDate birthDate) {
+            customer.birthDate = birthDate;
+            return this;
+        }
+
+        public Builder withPesel(String pesel) {
+            customer.pesel = pesel;
+            return this;
+        }
+
+        public Builder withProfession(String profession) {
+            customer.profession = profession;
+            return this;
+        }
+
+        public Builder livingIn(String city) {
+            customer.city = city;
+            return this;
+        }
+
+        public Builder fromCountry(String from) {
+            customer.country = from;
+            return this;
+        }
+
+        public Customer build() {
+            return customer;
+        }
     }
 }
